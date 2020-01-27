@@ -1,0 +1,8 @@
+# dependecies
+/node_modules
+
+# production
+/build 
+
+
+.ds_store
