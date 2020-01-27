@@ -11,7 +11,9 @@ class text extends React.Component {
   }
   componentDidMount() {
     // Tesseract.recognize(
-    //   "https://tesseract.projectnaptha.com/img/eng_bw.png",
+    //   // "https://i.pinimg.com/originals/a7/ca/6a/a7ca6a9e50ef52beb97c765d690fc1c8.png",
+    //   "https://upload.wikimedia.org/wikipedia/commons/1/17/Text_entropy.png",
+    //   // "https://tesseract.projectnaptha.com/img/eng_bw.png",
     //   "eng",
     //   { logger: m => console.log(m) }
     // ).then(({ data: { text } }) => {
