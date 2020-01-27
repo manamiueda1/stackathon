@@ -1,6 +1,6 @@
 import Tesseract from "tesseract.js";
 import React from "react";
-import { createWorker } from "tesseract.js";
+// import { createWorker } from "tesseract.js";
 
 class text extends React.Component {
   constructor() {
@@ -15,10 +15,10 @@ class text extends React.Component {
     const synth = window.speechSynthesis;
 
     Tesseract.recognize(
-      "https://image.isu.pub/180423042818-89de4b2a581e1b4e59942571f4cae075/jpg/page_1.jpg",
+      // "https://image.isu.pub/180423042818-89de4b2a581e1b4e59942571f4cae075/jpg/page_1.jpg",
       // "http://i.imgur.com/8iahD0M.png",
       // "https://upload.wikimedia.org/wikipedia/commons/1/17/Text_entropy.png",
-      // "https://tesseract.projectnaptha.com/img/eng_bw.png",
+      "https://tesseract.projectnaptha.com/img/eng_bw.png",
       "eng",
       { logger: m => console.log(m) }
     ).then(({ data: { text } }) => {
