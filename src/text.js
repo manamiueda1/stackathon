@@ -1,6 +1,5 @@
 import Tesseract from "tesseract.js";
 import React from "react";
-// import { createWorker } from "tesseract.js";
 
 class text extends React.Component {
   constructor() {
@@ -11,58 +10,24 @@ class text extends React.Component {
       image: ""
     };
   }
-  componentDidMount() {
+  componentDidMount() {}
+
+  handleClick = e => {
+    let image = e.target.files[0];
+    console.log("image ---------------->", image);
+
     const synth = window.speechSynthesis;
-
-    Tesseract.recognize(
-      // "https://image.isu.pub/180423042818-89de4b2a581e1b4e59942571f4cae075/jpg/page_1.jpg",
-      // "http://i.imgur.com/8iahD0M.png",
-      // "https://upload.wikimedia.org/wikipedia/commons/1/17/Text_entropy.png",
-      "https://tesseract.projectnaptha.com/img/eng_bw.png",
-      "eng",
-      { logger: m => console.log(m) }
-    ).then(({ data: { text } }) => {
-      console.log(text);
-      var utterThis = new SpeechSynthesisUtterance(text);
-      this.setState({
-        text: text,
-        voice: synth.speak(utterThis)
-      });
-    });
-
-    // const worker = createWorker({
-    //   logger: m => console.log(m)
-    // });
-
-    // (async () => {
-    //   await worker.load();
-    //   await worker.loadLanguage("eng");
-    //   await worker.initialize("eng");
-    //   const {
-    //     data: { text }
-    //   } = await worker.recognize(
-    //     "https://tesseract.projectnaptha.com/img/eng_bw.png"
-    //   );
-    //   console.log(text);
-    //   this.setState({
-    //     text: text
-    //   });
-    //   await worker.terminate();
-    // })();
-  }
-
-  // handleImageChange = e => {
-  //   let image = e.target.files[0];
-  //   console.log("image ---------------->", image);
-  //   Tesseract.recognize(image.name, "eng", {
-  //     logger: m => console.log(m)
-  //   }).then(({ data: { text } }) => {
-  //     console.log(text);
-  //     this.setState({
-  //       text: text
-  //     });
-  //   });
-  // };
+    Tesseract.recognize(image, "eng", { logger: m => console.log(m) }).then(
+      ({ data: { text } }) => {
+        console.log(text);
+        var utterThis = new SpeechSynthesisUtterance(text);
+        this.setState({
+          text: text,
+          voice: synth.speak(utterThis)
+        });
+      }
+    );
+  };
 
   render() {
     return (
@@ -75,7 +40,7 @@ class text extends React.Component {
                   className="file-input"
                   type="file"
                   accept="image/png, imgae/jpeg, image/gif"
-                  // onChange={this.handleImageChange}
+                  onChange={this.handleClick}
                 />
                 <span className="file-cta">
                   <span className="file-icon">
@@ -88,6 +53,8 @@ class text extends React.Component {
           </div>
         </div>
         <h1>{this.state.text}</h1>
+
+        <button onClick={this.handleClick}>Read To Me</button>
       </div>
     );
   }
