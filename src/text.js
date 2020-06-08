@@ -19,7 +19,7 @@ class text extends React.Component {
     Tesseract.recognize(image, "eng", { logger: (m) => console.log(m) }).then(
       ({ data: { text } }) => {
         console.log(text);
-        var utterThis = new SpeechSynthesisUtterance(text);
+        let utterThis = new SpeechSynthesisUtterance(text);
         this.setState({
           text: text,
           voice: synth.speak(utterThis),
@@ -28,7 +28,19 @@ class text extends React.Component {
     );
   };
 
-  // speechSynthesisInstance.pause();
+  handlePause = () => {
+    const synth = window.speechSynthesis;
+    this.setState({
+      voice: synth.pause(),
+    });
+  };
+
+  handleResume = () => {
+    const synth = window.speechSynthesis;
+    this.setState({
+      voice: synth.resume(),
+    });
+  };
 
   render() {
     return (
@@ -56,9 +68,19 @@ class text extends React.Component {
             </div>
           </div>
         </div>
-        {/* <div className="pause">
-          <button type="button">Pause</button>
-        </div> */}
+
+        <div className="pause">
+          <button type="button" onClick={this.handlePause}>
+            Pause
+          </button>
+        </div>
+
+        <div className="resume">
+          <button type="button" onClick={this.handleResume}>
+            Play
+          </button>
+        </div>
+
         <div className="the-text">
           <h1>{this.state.text}</h1>
         </div>
