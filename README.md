@@ -1,16 +1,25 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Image-to-Voice
 
-## Available Scripts
+Thanks for visiting my stackathon project! Image-to-Voice is a progressive-web-app that allows image of text turn into audio. You can upload an image with text on it and the app will read it out loud to you.
 
-In the project directory, you can run:
+## APIs used
+
+SpeechSynthesis - https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis
+
+Tesseract API - https://github.com/naptha/tesseract.js#tesseractjs
+
+Bulma Upload Button - https://bulma.io/documentation/form/file/
+
+## 'firebase deploy'
+
+Try out my app - it's deployed on firebase!: https://manami-stackathon.firebaseapp.com
 
 ### `npm start`
 
+'npm start' on your termial to view it on your browser!
+
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
 ### `npm test`
 
@@ -66,3 +75,5 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

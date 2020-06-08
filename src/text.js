@@ -14,7 +14,6 @@ class text extends React.Component {
 
   handleClick = e => {
     let image = e.target.files[0];
-    console.log("image ---------------->", image);
 
     const synth = window.speechSynthesis;
     Tesseract.recognize(image, "eng", { logger: m => console.log(m) }).then(
@@ -53,8 +52,6 @@ class text extends React.Component {
           </div>
         </div>
         <h1>{this.state.text}</h1>
-
-        <button onClick={this.handleClick}>Read To Me</button>
       </div>
     );
   }
