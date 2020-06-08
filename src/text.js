@@ -7,22 +7,22 @@ class text extends React.Component {
     this.state = {
       text: "",
       voice: "",
-      image: ""
+      image: "",
     };
   }
   componentDidMount() {}
 
-  handleClick = e => {
+  handleClick = (e) => {
     let image = e.target.files[0];
 
     const synth = window.speechSynthesis;
-    Tesseract.recognize(image, "eng", { logger: m => console.log(m) }).then(
+    Tesseract.recognize(image, "eng", { logger: (m) => console.log(m) }).then(
       ({ data: { text } }) => {
         console.log(text);
         var utterThis = new SpeechSynthesisUtterance(text);
         this.setState({
           text: text,
-          voice: synth.speak(utterThis)
+          voice: synth.speak(utterThis),
         });
       }
     );
@@ -31,6 +31,9 @@ class text extends React.Component {
   render() {
     return (
       <div className="section">
+        <div className="description">
+          Upload an image with text on it and see what happens!
+        </div>
         <div>
           <div className="field">
             <div className="file is-boxed is-success has-name">
