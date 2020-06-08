@@ -56,9 +56,9 @@ class text extends React.Component {
             </div>
           </div>
         </div>
-        <div className="pause">
+        {/* <div className="pause">
           <button type="button">Pause</button>
-        </div>
+        </div> */}
         <div className="the-text">
           <h1>{this.state.text}</h1>
         </div>
