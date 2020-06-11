@@ -38,7 +38,27 @@
 .image3 {
   margin-left: 10px;
   margin-right: 10px;
+  color: #333333;
+  font-family: Sans-serif;
+  font-weight: bold;
+
   font-size: 20px;
+  font-size: 0.8rem;
+  border: 2px solid #333333;
+  border-radius: 50px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease 0s;
+}
+
+.image1:hover,
+.image2:hover,
+.image3:hover {
+  background-color: black;
+  color: white;
 }
 
 .field {
@@ -60,6 +80,8 @@
   margin: 4px 2px;
   width: 200px;
   font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease 0s;
 }
 
 .pause:hover,

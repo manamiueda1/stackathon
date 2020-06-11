@@ -54,7 +54,7 @@ class App extends React.Component {
 
         <div className="description">
           Upload an image with text on it or <br></br>
-          download some images below to see what happens!
+          download the images below to see what happens!
         </div>
         <br></br>
         <div className="images">
