@@ -53,9 +53,9 @@ class App extends React.Component {
         <br></br>
 
         <div className="description">
-          Upload an image with text on it or <br></br>
-          download the images below to see what happens!
+          Download the imgaes below and upload them to see what happens!
         </div>
+        <br></br>
         <br></br>
         <div className="images">
           <a className="image1" href={crunches} download>
