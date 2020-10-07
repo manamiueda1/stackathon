@@ -1,35 +1,33 @@
 import Tesseract from "tesseract.js";
-import React from "react";
+import React, { Component } from "react";
 import "./App.css";
-import crunches from "./crunches.jpg";
-import nap from "./nap.jpg";
-import joke from "./joke.jpeg";
+import crunches from "./assets/img/crunches.jpg";
+import nap from "./assets/img/nap.jpg";
+import joke from "./assets/img/joke.jpeg";
 
-class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      text: "",
-      voice: "",
-      image: "",
-    };
-  }
-  componentDidMount() {}
+class App extends Component {
+  state = {
+    text: "",
+    voice: "",
+  };
 
   handleClick = (e) => {
     let image = e.target.files[0];
 
     const synth = window.speechSynthesis;
-    Tesseract.recognize(image, "eng", { logger: (m) => console.log(m) }).then(
-      ({ data: { text } }) => {
-        console.log(text);
+    Tesseract.recognize(image, "eng", {
+      logger: (m) => console.log(m),
+    })
+      .then(({ data: { text } }) => {
         let utterThis = new SpeechSynthesisUtterance(text);
         this.setState({
-          text: text,
+          text,
           voice: synth.speak(utterThis),
         });
-      }
-    );
+      })
+      .catch((e) => {
+        console.error(e);
+      });
   };
 
   handlePause = () => {
@@ -53,7 +51,7 @@ class App extends React.Component {
         <br></br>
 
         <div className="description">
-          Download the imgaes below and upload them to see what happens!
+          Download the sample images below and upload them to see what happens!
         </div>
         <br></br>
         <br></br>
